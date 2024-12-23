@@ -3,12 +3,13 @@
 def count_letters(poem):
     poem = "".join(poem.split())               # избавляемся от пробелов
     poem = poem.lower()                        # приведение к нижнему регистру
-    dikt = {}                                  # создаем новый пустой словарь
-    DEFAULT_COUNT = 0                          # создаем нулевой индекс для нового словаря
+    list = []
     for bukva in poem:
         if bukva.isalpha():                    # является ли символ буквой
-            dikt[bukva] = dikt.get(bukva, DEFAULT_COUNT) + 1
-    return(dikt)
+            list.append(bukva)
+    from collections import Counter
+    return(Counter(list))
+
 
 
 # TODO Напишите функцию calculate_frequency
@@ -61,5 +62,3 @@ main_str = """
 last_dikt = calculate_frequency(count_letters(main_str))
 for key, value in last_dikt.items():
     print(f"{key}: {format(value, '.2f')}")       # печатаем в столбик
-
-
