@@ -2,10 +2,8 @@
 
 def find(list,fruit):
     if fruit in list:                # условие: есть ли товар в списке?
-        index = list.index(fruit)    # если да - присваиваем индекс
-    else:
-        index = None                 # если нет - присваиваем none
-    return(index)                    # выводим значение индекса товара
+        return list.index(fruit)
+    return None                    # выводим значение индекса товара
 
 items_list = ['яблоко', 'банан', 'апельсин', 'груша', 'киви', 'банан']
 
