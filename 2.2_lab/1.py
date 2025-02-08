@@ -15,8 +15,8 @@ BOOKS_DATABASE = [
 # TODO написать класс Book
 
 class Book:
-    def __init__(self, id: int, name: str, pages: int):
-        self.id = id
+    def __init__(self, id_: int, name: str, pages: int):
+        self.id_ = id_
         self.name = name
         self.pages = pages
 
@@ -24,13 +24,13 @@ class Book:
         return f'Книга "{self.name}"'
 
     def __repr__(self) -> str:
-        return f'Book(id_={self.id!r}, name={self.name!r}, pages={self.pages!r})'  # Например, для строк важно указать !r
+        return f'Book(id_={self.id_!r}, name={self.name!r}, pages={self.pages!r})'  # Например, для строк важно указать !r
 
 
 if __name__ == '__main__':
     # инициализируем список книг
     list_books = [
-        Book(id=book_dict["id"], name=book_dict["name"], pages=book_dict["pages"]) for book_dict in BOOKS_DATABASE
+        Book(id_=book_dict["id"], name=book_dict["name"], pages=book_dict["pages"]) for book_dict in BOOKS_DATABASE
     ]
     for book in list_books:
         print(book)  # проверяем метод __str__
