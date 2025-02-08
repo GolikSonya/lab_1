@@ -11,35 +11,36 @@ BOOKS_DATABASE = [
     }
 ]
 
-from pydantic import BaseModel
 
 # TODO написать класс Book
 
-class Book(BaseModel):
-    id: int
-    name: str
-    pages: int
+
+class Book:
+    def __init__(self, id_: int, name: str, pages: int):
+        self.id_ = id_
+        self.name = name
+        self.pages = pages
 
 
 # TODO написать класс Library
-
-from typing import List
-from typing import Optional
-
-
 
 class Library:
     def __init__(self, books=None):
         if books is None:
             books = []
         self.books = books
-        self.get_next_book_id()
 
-    next_book_id = 1   #идентификатор, когда книг в библиотеке нет
-   
-    def get_next_book_id(self, books=None):
-        if books is None:
-            return next_book_id
+    def get_next_book_id(self):
+        length = len(self.books)
+        next_book_id = length + 1
+        return next_book_id
+
+    def get_index_by_book_id(self, book_id):
+        for index, book in enumerate(self.books):
+            if book["id_"] == book_id:
+                return index
+        raise ValueError("Книги с запрашиваемым id не существует")
+
 
 
 
